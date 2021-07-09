@@ -35,6 +35,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $password;
 
+    /**
+     * @var integer
+     * @ORM\Column(type="integer")
+     */
+    private $score;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -96,6 +102,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         $this->password = $password;
 
+        return $this;
+    }
+
+    private function getScore(){
+        return $this->score;
+    }
+
+    private function setScore(int $score){
+        $this->score = $score;
         return $this;
     }
 

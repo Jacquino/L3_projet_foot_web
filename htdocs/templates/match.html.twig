@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}all match!{% endblock %}
+
+{% block body %}
+        {% if matchList is defined %}
+            <div class="list_match">
+                {% for key,match in matchList %}
+                    <ul>
+                        <li>Date:  {{ match.date }}</li>
+
+                        {% if match.scores is defined %}
+                            <li>Domicile: {{  match.teams.domicile }} {{  match.scores.domicile }}</li>
+                            <li>Exterieur: {{  match.teams.exterieur }} {{  match.scores.exterieur }}</li>
+                        {% else %}
+                            <li>Domicile: {{  match.teams.domicile }} <input name="buttom" type = "submit" value="+"></li>
+                            <li>Exterieur: {{  match.teams.exterieur }} <input name="buttom" type = "submit" value="+"></li>
+                        {% endif %}
+                    </ul>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="list_match">
+                {% for match in matchList %}
+                    <ul>
+                        <li>Date:  {{ match.date }}</li>
+
+                    {% if match.scores is defined %}
+                        <li>Domicile: {{  match.teams.domicile }} {{  match.scores.domicile }}</li>
+                        <li>Exterieur: {{  match.teams.exterieur }} {{  match.scores.exterieur }}</li>
+                    {% else %}
+                        <li>Domicile: {{  match.teams.domicile }}</li>
+                        <li>Exterieur: {{  match.teams.exterieur }}</li>
+                    {% endif %}
+                    </ul>
+                {% endfor %}
+            </div>
+        {% endif %}
+{% endblock %}

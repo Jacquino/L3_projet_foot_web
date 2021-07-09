@@ -23,7 +23,7 @@ class FootballMatch
     private $teams;
 
     /**
-     * @ORM\Column(type="datetime", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $date;
 
@@ -54,7 +54,7 @@ class FootballMatch
         return $this->date;
     }
 
-    public function setDate(?\DateTimeInterface $date): self
+    public function setDate(string $date): self
     {
         $this->date = $date;
 
